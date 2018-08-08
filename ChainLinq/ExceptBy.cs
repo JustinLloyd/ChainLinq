@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ChainLinq
 {
@@ -18,7 +19,8 @@ namespace ChainLinq
         /// <returns></returns>
         public static IEnumerable<T> ExceptBy<T, TKey>(this IEnumerable<T> source, IEnumerable<T> except, Func<T, TKey> keyComparer)
         {
-            throw new NotImplementedException();
+            var keysToCompare = except.Select(keyComparer).ToHashSet();
+            return source.Where(i => !keysToCompare.Contains(keyComparer(i)));
         }
 
         /// <summary>
