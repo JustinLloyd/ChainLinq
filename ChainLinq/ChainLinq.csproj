@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Authors>Justin Lloyd</Authors>
+    <Company></Company>
+    <PackageId>ChainLinq</PackageId>
+    <PackageTags>linq</PackageTags>
+    <PackageProjectUrl>https://github.com/JustinLloyd/ChainLinq</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/JustinLloyd/ChainLinq/blob/master/LICENSE</PackageLicenseUrl>
+    <Copyright>Copyright (c) 2018 Justin Lloyd</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.0.0</Version>
+  </PropertyGroup>
+
+</Project>
