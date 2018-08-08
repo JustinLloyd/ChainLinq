@@ -31,12 +31,12 @@ namespace ChainLinq
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TKey"></typeparam>
         /// <param name="source"></param>
-        /// <param name="sourceKeyComparer"></param>
+        /// <param name="sourceKeySelector"></param>
         /// <param name="except"></param>
-        /// <param name="exceptKeyComparer"></param>
+        /// <param name="exceptKeySelector"></param>
         /// <returns></returns>
-        public static IEnumerable<T> ExceptBy<T, TKey>(this IEnumerable<T> source, Func<T, TKey> sourceKeyComparer,
-            IEnumerable<T> except, Func<T, TKey> exceptKeyComparer)
+        public static IEnumerable<T> ExceptBy<T, TKey>(this IEnumerable<T> source, Func<T, TKey> sourceKeySelector,
+            IEnumerable<T> except, Func<T, TKey> exceptKeySelector)
         {
             throw new NotImplementedException();
         }
