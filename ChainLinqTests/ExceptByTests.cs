@@ -54,16 +54,24 @@ namespace ChainLinqTests
             public Gender Gender;
         }
 
-        class Brother : Sibling
+        class Brother
         {
+            public string Name;
+            public DateTime Birthdate;
+            public Gender Gender;
+
             public Brother()
             {
                 Gender = Gender.Male;
             }
         }
 
-        class Sister : Sibling
+        class Sister
         {
+            public string Name;
+            public DateTime Birthdate;
+            public Gender Gender;
+
             public Sister()
             {
                 Gender = Gender.Male;
@@ -153,7 +161,7 @@ namespace ChainLinqTests
         public void GenderedSiblingsExcludingSistersComplexType()
         {
             List<Sibling> result = genderedSiblingsComplex.ExceptBy(s => s.Name, genderedBrothersComplex, b=>b.Name).ToList();
-            CollectionAssert.AreEqual(genderedSistersComplex, result, new SiblingComparer());
+            CollectionAssert.AreEqual(sistersComplex, result, new SiblingComparer());
         }
 
         private class SiblingComparer : Comparer<Sibling>
@@ -163,5 +171,13 @@ namespace ChainLinqTests
                 return x.Name.CompareTo(y.Name);
             }
         }
+        private class SisterComparer : Comparer<Sister>
+        {
+            public override int Compare(Sister x, Sister y)
+            {
+                return x.Name.CompareTo(y.Name);
+            }
+        }
+
     }
 }

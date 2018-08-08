@@ -35,8 +35,8 @@ namespace ChainLinq
         /// <param name="except"></param>
         /// <param name="exceptKeySelector"></param>
         /// <returns></returns>
-        public static IEnumerable<TSource> ExceptBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> sourceKeySelector,
-            IEnumerable<TSource> except, Func<TSource, TKey> exceptKeySelector)
+        public static IEnumerable<TSource> ExceptBy<TSource, TExcept, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> sourceKeySelector,
+            IEnumerable<TExcept> except, Func<TExcept, TKey> exceptKeySelector)
         {
             var keysToCompare = except.Select(exceptKeySelector).ToHashSet();
             return source.Where(i => !keysToCompare.Contains(sourceKeySelector(i)));
