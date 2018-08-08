@@ -15,12 +15,12 @@ namespace ChainLinq
         /// <typeparam name="TKey"></typeparam>
         /// <param name="source"></param>
         /// <param name="except"></param>
-        /// <param name="keyComparer"></param>
+        /// <param name="keySelector"></param>
         /// <returns></returns>
-        public static IEnumerable<T> ExceptBy<T, TKey>(this IEnumerable<T> source, IEnumerable<T> except, Func<T, TKey> keyComparer)
+        public static IEnumerable<T> ExceptBy<T, TKey>(this IEnumerable<T> source, IEnumerable<T> except, Func<T, TKey> keySelector)
         {
-            var keysToCompare = except.Select(keyComparer).ToHashSet();
-            return source.Where(i => !keysToCompare.Contains(keyComparer(i)));
+            var keysToCompare = except.Select(keySelector).ToHashSet();
+            return source.Where(i => !keysToCompare.Contains(keySelector(i)));
         }
 
         /// <summary>
