@@ -38,7 +38,8 @@ namespace ChainLinq
         public static IEnumerable<T> ExceptBy<T, TKey>(this IEnumerable<T> source, Func<T, TKey> sourceKeySelector,
             IEnumerable<T> except, Func<T, TKey> exceptKeySelector)
         {
-            throw new NotImplementedException();
+            var keysToCompare = except.Select(exceptKeySelector).ToHashSet();
+            return source.Where(i => !keysToCompare.Contains(sourceKeySelector(i)));
         }
 
     }
