@@ -41,7 +41,7 @@ namespace ChainLinqTests
         };
 
         [TestMethod]
-        public void ExceptByBasic()
+        public void SiblingsExcludingSistersSimple()
         {
             List<string> result = siblings.ExceptBy(sisters, n => n).ToList();
             CollectionAssert.AreEquivalent(brothers, result);
